@@ -1,0 +1,21 @@
+{
+    "name": "rimote/rimote-validation-bundle",
+    "description": "Extends and simplifies Symfony's Validator by providing a flat array with error messages.",
+    "keywords": ["symfony", "validator", "exception", "simple"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rimote",
+            "homepage": "http://rimote.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "symfony/validator"
+    },
+    "autoload": {
+        "psr-0": { "Rimote\\ValidationBundle": "" }
+    },
+    "target-dir": "Rimote/ValidationBundle"
+}
