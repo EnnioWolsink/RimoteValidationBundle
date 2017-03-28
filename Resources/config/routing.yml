@@ -1,3 +1,0 @@
-rimote_validation_homepage:
-    path:     /
-    defaults: { _controller: RimoteValidationBundle:Default:index }
