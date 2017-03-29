@@ -16,7 +16,7 @@
         "jms/di-extra-bundle": "^1.8"
     },
     "autoload": {
-        "psr-4": { "Rimote\\ValidationBundle": "" }
+        "psr-4": { "Rimote\\ValidationBundle\\": "" }
     },
     "target-dir": "Rimote/ValidationBundle"
 }
