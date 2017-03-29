@@ -3,13 +3,12 @@
 namespace Rimote\ValidationBundle\Validator;
 
 use Symfony\Component\Validator\Validator as SymfonyValidator;
-use JMS\DiExtraBundle\Annotation as DI;
 use Rimote\ValidationBundle\Validator\Exception\ErrorMessagesException;
 
 class Validator
 {
     private $validator;
-    
+
     public function __construct(SymfonyValidator $validator)
     {
         $this->validator = $validator;
