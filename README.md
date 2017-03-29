@@ -105,7 +105,13 @@ Here's how we can validate this inside our CatsController::createAction (which u
 
 // ...
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Rimote\ValidationBundle\Validator\Exception\ErrorMessagesException;
+use AppBundle\Entity\Cat;
 
 /**
  * @Route("/cats/", name="api_cats_create")
