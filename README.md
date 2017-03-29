@@ -172,6 +172,6 @@ Just consider the standard output from Symfony's Validator `validate()` method, 
               private 'code' => string 'ad32d13f-c3d4-423b-909a-857b961eb720' (length=36)
               private 'cause' => null
 
-This instance of `ConstraintViolationList` can be preferable to a flat array of error messages. However, if such an array is required, it's necessary to iterate over the ConstraintViolationList, and use several getters such as `getPropertyPath()` and `getMessages()` to retrieve the information one needs. 
+This instance of `ConstraintViolationList` can be preferable to a flat array of error messages. However, if such an array is required, it's necessary to iterate over the ConstraintViolationList, and use several getters such as `getPropertyPath()` and `getMessage()` to retrieve the information one needs. 
 
 Naturally if you need to do this more than once you'd want a generic service to do this for you. In that case save yourself the hassle and use RimoteValidationBundle ;-).
