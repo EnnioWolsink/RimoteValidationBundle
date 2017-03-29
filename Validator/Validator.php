@@ -21,7 +21,7 @@ class Validator
         $errors = $validator->validate($entity);
         if ($errors->count() > 0) {
             $messages = array();
-            $i = 0; foreach ($errors as $key => $error) {
+            foreach ($errors as $key => $error) {
                 $messages[$error->getPropertyPath()] = $error->getMessage();
             }
             
