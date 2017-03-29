@@ -3,8 +3,35 @@
 namespace Rimote\ValidationBundle\Validator;
 
 use Symfony\Component\Validator\Validator as SymfonyValidator;
+use JMS\DiExtraBundle\Annotation as DI;
+use Rimote\ValidationBundle\Validator\Exception\ErrorMessagesException;
 
-class Validator extends SymfonyValidator
+class Validator
 {
-    // ...
+    private $validator;
+
+    /**
+     * @DI\InjectParams({
+     *     "validator" = @DI\Inject("validator")
+     * })
+     */
+    public function __construct(SymfonyValidator $validator)
+    {
+        $this->validator = $validator;
+    }
+
+    public function validate($entity)
+    {
+        $validator = $this->validator;
+
+        $errors = $validator->validate($entity);
+        if ($errors->count() > 0) {
+            $messages = array();
+            $i = 0; foreach ($errors as $key => $error) {
+                $messages[$error->getPropertyPath()] = $error->getMessage();
+            }
+            
+            throw new ErrorMessagesException($messages);
+        }
+    }
 }
