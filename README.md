@@ -128,3 +128,50 @@ public function createAction(Request $request, Cat $cat)
 }
 ?>
 ```
+
+## So what problem is actually solved?
+Just consider the standard output from Symfony's Validator `validate()` method, using our above example, to make the practical use of the RimoteValidationBundle clear:
+
+    object(Symfony\Component\Validator\ConstraintViolationList)[545]
+      private 'violations' => 
+        array (size=2)
+          0 => 
+            object(Symfony\Component\Validator\ConstraintViolation)[546]
+              private 'message' => string 'This value should not be null.' (length=30)
+              private 'messageTemplate' => string 'This value should not be null.' (length=30)
+              private 'parameters' => 
+                array (size=1)
+                  ...
+              private 'plural' => null
+              private 'root' => 
+                object(AppBundle\Entity\Cat)[451]
+                  ...
+              private 'propertyPath' => string 'fur_type' (length=8)
+              private 'invalidValue' => null
+              private 'constraint' => 
+                object(Symfony\Component\Validator\Constraints\NotNull)[455]
+                  ...
+              private 'code' => string 'ad32d13f-c3d4-423b-909a-857b961eb720' (length=36)
+              private 'cause' => null
+          1 => 
+            object(Symfony\Component\Validator\ConstraintViolation)[548]
+              private 'message' => string 'This value should not be null.' (length=30)
+              private 'messageTemplate' => string 'This value should not be null.' (length=30)
+              private 'parameters' => 
+                array (size=1)
+                  ...
+              private 'plural' => null
+              private 'root' => 
+                object(AppBundle\Entity\Cat)[451]
+                  ...
+              private 'propertyPath' => string 'gender' (length=6)
+              private 'invalidValue' => null
+              private 'constraint' => 
+                object(Symfony\Component\Validator\Constraints\NotNull)[469]
+                  ...
+              private 'code' => string 'ad32d13f-c3d4-423b-909a-857b961eb720' (length=36)
+              private 'cause' => null
+
+This instance of `ConstraintViolationList` can be preferable to a flat array of error messages. However, if such an array is required, it's necessary to iterate over the ConstraintViolationList, and use several getters such as `getPropertyPath()` and `getMessages()` to retrieve the information one needs. 
+
+Naturally if you need to do this more than once you'd want a generic service to do this for you. In that case save yourself the hassle and use RimoteValidationBundle ;-).
