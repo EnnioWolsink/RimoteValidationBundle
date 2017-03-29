@@ -27,5 +27,7 @@ class Validator
             
             throw new ErrorMessagesException($messages);
         }
+
+        return true;
     }
 }
