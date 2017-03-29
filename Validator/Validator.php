@@ -2,14 +2,14 @@
 
 namespace Rimote\ValidationBundle\Validator;
 
-use Symfony\Component\Validator\Validator as SymfonyValidator;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Rimote\ValidationBundle\Validator\Exception\ErrorMessagesException;
 
 class Validator
 {
     private $validator;
 
-    public function __construct(SymfonyValidator $validator)
+    public function __construct(ValidatorInterface $validator)
     {
         $this->validator = $validator;
     }
