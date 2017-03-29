@@ -1,0 +1,4 @@
+services:
+    rimote.validator:
+        class:  Rimote\ValidationBundle\Validator\Validator
+        arguments: ['%validator%']

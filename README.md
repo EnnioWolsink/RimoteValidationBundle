@@ -5,6 +5,10 @@ Extends and simplifies Symfony's Validator by providing a flat array with error 
 Install using composer:
 
     composer require rimote/rimote-validation-bundle
+
+Edit `/app/AppKernel.php` and add the following bundle in the AppKernel::registerBundles() method inside the `$bundles` array:
+
+    new Rimote\ValidationBundle\RimoteValidationBundle()
     
 ## How does it work?
 Whenever you want to validate a [Doctrine](http://www.doctrine-project.org/projects/orm.html) Entity in your [Symfony](symfony.com) codebase, instead of using Symfony's [Validator component](http://symfony.com/doc/current/validation.html) directly, you can use the RimoteValidationBundle's Validator instead. 

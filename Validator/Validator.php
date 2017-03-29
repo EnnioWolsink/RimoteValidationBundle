@@ -9,12 +9,7 @@ use Rimote\ValidationBundle\Validator\Exception\ErrorMessagesException;
 class Validator
 {
     private $validator;
-
-    /**
-     * @DI\InjectParams({
-     *     "validator" = @DI\Inject("validator")
-     * })
-     */
+    
     public function __construct(SymfonyValidator $validator)
     {
         $this->validator = $validator;
