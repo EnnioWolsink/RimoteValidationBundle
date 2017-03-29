@@ -17,6 +17,5 @@
     },
     "autoload": {
         "psr-4": { "Rimote\\ValidationBundle\\": "" }
-    },
-    "target-dir": "Rimote/ValidationBundle"
+    }
 }
